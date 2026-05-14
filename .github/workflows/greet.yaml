@@ -1,11 +1,8 @@
 name: greeting
-on: push 
+on: push
 jobs:
-   build:
-     runs-on: ubuntu-latest
-     steps:
-       - name: Build step
-         run: echo "build..." 
-        
-        
-  
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build step
+        run: echo "build..."
