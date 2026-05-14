@@ -3,22 +3,23 @@ name: greeting
 on: workflow_dispatch
 
 jobs:
-  first_job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: greet user
-        run: |
-          echo "welcome user..." 
-  second_job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: update system
-        run: sudo apt update
-  third_job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: prepare_build
-        run: echo "setting up..."
+   build:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Build step
+         run: echo "build..."
+   test:
+      runs-on: ubuntu-latest
+      needs: build
+      steps:
+        - name: test step
+          run: echo "test..."
+   deploy:
+     runs-on: ubuntu-latest
+     needs: test
+     steps:
+       - name: deploy
+         run: echo "deploy..."
         
         
   
