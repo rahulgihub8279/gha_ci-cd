@@ -1,0 +1,40 @@
+services:
+  mongodb:
+    image: mongo:8.0
+    volumes:
+      - mongodbdata:/data/db
+    networks:
+      - mern-net
+    container_name: mongodb
+  server:
+    build: 
+      context: ./API-jokes
+      dockerfile: Dockerfile
+    volumes:
+      - ./API-jokes:/app
+    ports:
+      - 5000:5000  
+    depends_on:
+      - mongodb
+    networks:
+      - mern-net  
+    container_name: server  
+  client:
+    build:
+      context: ./jokes-client
+      dockerfile: Dockerfile
+    volumes:
+      - ./jokes-client/src:/app/src  
+    ports:
+      - 3000:3000
+    depends_on:
+      - server
+    networks:
+      - mern-net  
+    container_name: client 
+   
+volumes:
+  mongodbdata:
+networks:
+  mern-net:
+    
