@@ -1,0 +1,9 @@
+name: greeting
+on: workflow_dispatch
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: greet user
+        run: echo "welcom user"
+  
