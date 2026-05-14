@@ -20,4 +20,4 @@ jobs:
       - name: Build step
         run: echo "build..."
       - name: final step
-        run: echo "finalize..."  
+        run: echo "finalize2..."  
