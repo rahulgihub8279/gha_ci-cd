@@ -4,8 +4,7 @@ on:
     branches: 
       - main
       - "release/**"  
-    paths-ignore: 
-      - '*.md'
+    paths-ignore:  
       - '.gitignore'
       - '/github/workflows/*'
   pull_request: 
