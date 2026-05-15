@@ -33,4 +33,4 @@ jobs:
     needs: check_variable
     steps:
       - name: showing secret
-        run: echo "docker ps -> ${{secrets.DOCKER_PASSWORD}}"
+        run: echo "docker ps -> ${{secrets.DOCKER_PASS}}"
