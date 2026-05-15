@@ -1,36 +1,12 @@
 name: greeting
 on: 
   push:
-    branches: 
-      - main
-      - "release/**"  
-    paths-ignore:  
-      - '.gitignore'
-      - '/github/workflows/*'
-  pull_request: 
-    branches: 
-      - main 
-  workflow_dispatch: 
   
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Build step
-        run: echo "build..."
-      - name: final step 
-        run: echo "finalize2..."
-  check_variable:    
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: getting variable
-        run: echo "getting..."
-      - name: showing variable
-        run: echo "hello, ${{vars.MY_VAR}}"
   check_secrets:
-    runs-on: ubuntu-latest
-    needs: check_variable
+    runs-on: ubuntu-latest 
     steps:
-      - name: showing secret
-        run: echo "docker ps -> ${{secrets.DOCKER_PASS}}"
+      - name: Checkout the code
+        uses: actions/checkout@v6
+      - name: Print index.html
+        run: cat index.html
