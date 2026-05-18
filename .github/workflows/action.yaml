@@ -22,9 +22,14 @@ jobs:
               run: echo "variable is ${{vars.MY_VAR}}"  
             - name: checking secrets
               run: echo "secrets is ${{secrets.DOCKER_PASS}}"  
+            - name: check date
+              run: date  
     action:
         runs-on: ubuntu-latest
         needs: build
         steps:
-            - name: checkout code
-              run:             
+            - name: checkout the code
+              uses: actions/checkout@v6    
+            - name: print html
+              run: cat index.html  
+
