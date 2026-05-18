@@ -1,5 +1,14 @@
 name: delpoy to s3
-on: push
+on: 
+    push:
+        branches: 
+            - main
+            - release/**
+            - features/**
+    pull_request: 
+        branches: 
+            - main
+    workflow_dispatch:                
 
 jobs: 
     build: 
@@ -9,4 +18,7 @@ jobs:
               run: echo "building..."
             - name: final check
               run: echo "finalizing..."
-
+            - name: checking vars
+              run: echo "variable is ${{vars.MY_VAR}}"  
+            - name: checking secrets
+              run: echo "secrets is ${{secrets.DOCKER_PASS}}"  
