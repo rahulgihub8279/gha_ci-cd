@@ -1,0 +1,12 @@
+name: delpoy to s3
+on: push
+
+jobs: 
+    build: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: build step
+              run: echo "building..."
+            - name: final check
+              run: echo "finalizing..."
+
