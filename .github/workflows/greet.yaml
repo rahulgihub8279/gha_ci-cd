@@ -1,0 +1,12 @@
+name: greeting
+on: 
+  push:
+  
+jobs:
+  check_secrets:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v6
+      - name: Print index.html
+        run: cat index.html
